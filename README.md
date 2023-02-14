@@ -1,4 +1,4 @@
-# Assignment-1, Frozen Lake
+# Frozen Lake
 <p align="center">
 <img src="https://i.imgur.com/4ko049P.png" width="300" height="300" align="Center">
 </p>
