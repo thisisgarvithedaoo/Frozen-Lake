@@ -9,6 +9,7 @@
 - [Action Space](#action-space)
 - [Observation Space](#observation-space)
 - [Reward](#reward)
+- [Argument](#argument)
 
 ## Description -
 * Frozen lake involves crossing a frozen lake from Start(S) to Goal(G) without falling into any Holes(H) by walking over the Frozen(F) lake. The agent may not always move in the intended direction due to the slippery nature of the frozen lake.
