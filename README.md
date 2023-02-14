@@ -1,7 +1,7 @@
 # ❄️Frozen Lake❄️
 <p align="center">
-<img src="https://i.imgur.com/4ko049P.png" width="300" height="300" align="Center"><br />
-<img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);" src="https://www.gymlibrary.dev/_images/frozen_lake.gif">
+<img src="https://i.imgur.com/4ko049P.png" width="300" height="300">
+<img style="display: block;-webkit-user-select: none;margin: auto;background-color: hsl(0, 0%, 90%);" src="https://www.gymlibrary.dev/_images/frozen_lake.gif" width="300" height="300">
 </p>
 
 ## Table of Contents -
