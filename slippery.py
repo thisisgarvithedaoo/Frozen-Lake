@@ -60,24 +60,11 @@ def policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-3):
             a = policy[s]
             print(len(P[s][a]))
             for slip in range(len(P[s][a])):
-                # print(s, a, slip)
                 prev_value_function[s] +=  P[s][a][slip][0] * (P[s][a][slip][2] +  (gamma * value_function[P[s][a][slip][1]]))
-                # prob, nextS, rew, _ = slip
-                # prev_value_function[s] += prob * (rew + (gamma * value_function[nextS]))
-                # value_function[s] += P[s][a][slip][2]
-            # print(s, a, value_function[s])
             if(abs(value_function[s] - prev_value_function[s]) > max_diff):
                 max_diff = abs(value_function[s] - prev_value_function[s])
         value_function = prev_value_function.copy()
         i += 1
-
-    # print(value_function)
-
-        # for s in range(nS):
-        # print(np.absolute(value_function - prev_value_function))
-        # max_diff = (np.max(np.absolute(value_function - prev_value_function)))
-        # print(max_diff)
-                # max_diff = abs(value_function[s] - prev_value_function[s])
 
     ############################
     return value_function
@@ -110,25 +97,13 @@ def policy_improvement(P, nS, nA, value_from_policy, policy, gamma=0.9):
 
     for s in range(nS):
         max = 0
-        # action_value = np.zeros(nA)
         for a in range(nA):
             for slip in range(len(P[s][a])):
-                # print(slip)s
                 action_value[s][a] += P[s][a][slip][0] * (P[s][a][slip][2] + (gamma * value_from_policy[P[s][a][slip][1]]))
             if(action_value[s][a] > max):
                 max = action_value[s][a]
                 new_policy[s] = a
-            # print(s, a, action_value)
-            # if(action_value[a] >= max):
-            #     max = action_value[a]
-            #     # print(max)
-            #     new_policy[s] = a
-        # max = np.argmax(action_value)
-        # new_policy = max
 
-    # for s in range(nS):
-    #     max = np.argmax(action_value[s])
-    #     new_policy[s] = max
     ############################
     return new_policy
 
@@ -156,7 +131,6 @@ def policy_iteration(P, nS, nA, gamma=0.9, tol=10e-3):
     ############################
     # YOUR IMPLEMENTATION HERE #
 
-
     i = 1.0
     while True and i < 20:
         value_function = policy_evaluation(P, nS, nA, policy, gamma=0.9, tol=1e-3)
@@ -168,6 +142,7 @@ def policy_iteration(P, nS, nA, gamma=0.9, tol=10e-3):
         return value_function, policy
     else:
         print("Error : policy_iteration()")
+
     ############################
 
 
@@ -202,14 +177,11 @@ def value_iteration(P, nS, nA, gamma=0.9, tol=1e-3):
             for a in range(nA):
                 sigma = 0
                 for slip in range(len(P[s][a])):
-                    # print(s, slip)
                     sigma += P[s][a][slip][0] * (P[s][a][slip][2] + (gamma * prev_value_function[P[s][a][slip][1]]))
-                # print(s, a, sigma)
                 if(sigma > max):
                     max = sigma
                     policy[s] = a
             value_function[s] = max
-            # print("s:" + str(s) + ": "+ str(value_function[s]))
 
         max_diff = 0.0
         for s in range(nS):
@@ -243,9 +215,8 @@ def render_single(env, policy, max_steps=100):
 
     for t in range(max_steps):
         env.render()
-        # time.sleep(0.25)
+        time.sleep(0.25)
         a = policy[ob]
-        # print(a)
         '''
         if(a == 0): print("Left")
         elif(a == 1): print("Down")
